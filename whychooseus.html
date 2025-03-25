@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Why Choose Us – Exact Replica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Link to the same style.css as your Home page -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Container -->
+  <div class="container">
+    <!-- Single top nav -->
+    <div class="top-nav">
+      <div class="nav-left">
+        <a href="index.html">
+          <img src="next-gen-final.jpeg" alt="Logo" style="height:40px;" />
+        </a>
+      </div>
+
+      <!-- Use the same ID and classes as Home -->
+      <div class="nav-links" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="whychooseus.html">Why Choose Us</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+
+    <!-- Hero container -->
+    <div class="hero-container">
+      <img src="Why PR deserves a seat at the decision-making table - Ragan Communications.jpg" alt="Background" class="bg-image" />
+      <div class="color-overlay"></div>
+
+      <section class="why-choose-us" id="why-us">
+        <div class="why-container">
+          <h2>Why Choose Us</h2>
+          <p>
+            NEXTGEN Low Voltage MEPfp DESIGN & CONSULTANTS, LLC stands at the forefront...
+          </p>
+          <ul>
+            <li>Low Voltage Global Experience</li>
+            <li>Advanced Low Voltage Tech Integration</li>
+            <li>Client-Centric Approach</li>
+          </ul>
+        </div>
+
+        <div class="stats-container">
+          <div class="stat-box">
+            <h3>28+</h3>
+            <p>Project Completed</p>
+          </div>
+          <div class="stat-box">
+            <h3>47k</h3>
+            <p>Happy Customers</p>
+          </div>
+          <div class="stat-box">
+            <h3>36</h3>
+            <p>Experienced Staff</p>
+          </div>
+          <div class="stat-box">
+            <h3>56+</h3>
+            <p>Ongoing Projects</p>
+          </div>
+        </div>
+      </section>
+    </div> <!-- hero-container -->
+
+  </div> <!-- container -->
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <h3>NEXTGEN MEPfp DESIGN &amp; CONSULTANTS, LLC</h3>
+      <p>4095 Southern BLVD Suite #207, WEST PALM BEACH, FL 33406</p>
+      <p>Phone: 877-307-8131 &nbsp;|&nbsp; Email: info@nextgenmepfp.com</p>
+      <p>&copy; 2025 NEXTGEN MEPfp. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Same JavaScript as Home -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+  </script>
+
+
+<link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+<script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+<df-messenger
+  location="us-central1"
+  project-id="nextgen-454401"
+  agent-id="09844661-f51b-4342-8ee3-0edb56e00c91"
+  language-code="en"
+  max-query-length="-1">
+  <df-messenger-chat-bubble
+    chat-title="NextGen Chatbot">
+  </df-messenger-chat-bubble>
+</df-messenger>
+<style>
+  df-messenger {
+    z-index: 999;
+    position: fixed;
+    --df-messenger-font-color: #000;
+    --df-messenger-font-family: Google Sans;
+    --df-messenger-chat-background: #f3f6fc;
+    --df-messenger-message-user-background: #d3e3fd;
+    --df-messenger-message-bot-background: #fff;
+    bottom: 16px;
+    right: 16px;
+  }
+</style>
+</body>
+</html>
