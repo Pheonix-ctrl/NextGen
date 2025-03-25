@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contact Us – NEXTGEN MEPfp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <style>
+    /****************
+      1) BASIC RESET & FULL-PAGE SCROLL
+    ****************/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden;   /* no horizontal scroll */
+      overflow-y: auto;     /* vertical scroll if content is tall */
+      font-family: Arial, sans-serif;
+      color: #fff;
+      background: #DA3A2C;  /* fallback if image fails */
+    }
+
+    /****************
+      2) TOP NAV
+    ****************/
+    .top-nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #fff;
+      color: #000;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* logo on left, hamburger on right */
+      z-index: 9999;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .nav-left img {
+      height: 40px;
+    }
+
+    /* Desktop nav links */
+    .nav-links {
+      display: flex;
+      gap: 2rem; /* spacing between links */
+    }
+    /* Basic link styling */
+    .nav-links a,
+    .mobile-menu a {
+      color: #000;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 0.5rem;
+      border-radius: 4px;
+    }
+    .nav-links a:hover,
+    .mobile-menu a:hover {
+      background-color: #f0f0f0;
+    }
+
+    /* Hamburger hidden on desktop, shown on mobile */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /****************
+      3) HERO CONTAINER => background + overlay
+    ****************/
+    .hero-container {
+      position: relative;
+      width: 100%;
+      /* Let content dictate height */
+    }
+    /* Background image behind everything */
+    .bg-image {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;  /* tinted effect */
+      z-index: 1;
+    }
+    /* Red overlay for deeper tint */
+    .color-overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #DA3A2C;
+      opacity: 0.8;
+      mix-blend-mode: multiply;
+      z-index: 2;
+    }
+
+    /****************
+      4) BIG HEADING AT THE TOP
+    ****************/
+    .center-text {
+      position: relative;
+      z-index: 3; /* above overlay */
+      text-align: center;
+      padding: 6rem 1rem 2rem; /* spacing so it’s below the nav */
+      margin-top: 4rem;       /* extra offset because nav is fixed */
+    }
+    .center-text h1 {
+      font-size: 4rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.5rem;
+    }
+    .center-text p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 0.5rem auto 0 auto;
+      line-height: 1.4;
+    }
+
+    /****************
+      5) CONTACT SECTION => GLASS BOXES
+    ****************/
+    .contact-section {
+      position: relative;
+      z-index: 3;  /* above overlay */
+      width: 100%;
+      padding: 3rem 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto; /* center horizontally */
+    }
+    .contact-box {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(255,255,255,0.1); /* glass effect */
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 8px;
+      padding: 2rem;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .contact-box:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 25px rgba(0,0,0,0.3);
+    }
+    /* LEFT BOX => Contact Info */
+    .contact-info h2 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    .contact-info p {
+      font-size: 1.1rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .contact-info ul {
+      list-style: none;
+      margin-top: 1rem;
+      padding: 0;
+    }
+    .contact-info li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+    }
+    .contact-info li i {
+      color: #ffd700; /* gold icon color */
+      margin-right: 0.5rem;
+      font-size: 1.2rem;
+    }
+    /* RIGHT BOX => Contact Form */
+    .contact-form h2 {
+      font-size: 2rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+    .contact-form label {
+      display: block;
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 0.3rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 4px;
+      background: rgba(0,0,0,0.2);
+      color: #fff;
+      backdrop-filter: blur(5px);
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: #ffd700;
+    }
+    .contact-form button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      background: #ffd700;
+      color: #000;
+      border: none;
+      padding: 0.8rem 1.2rem;
+      cursor: pointer;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+    .contact-form button:hover {
+      background: #ffe85c;
+    }
+
+    /****************
+      6) FOOTER
+    ****************/
+    .main-footer {
+      background: #000;
+      color: #fff;
+      text-align: left;
+      padding: 2rem 1rem;
+      margin-top: 0;
+    }
+    .footer-content {
+      padding-left: 2rem; /* Shift content to the right */
+    }
+    .footer-content h3 {
+      margin-bottom: 1rem;
+    }
+    .main-footer p {
+      margin: 0.3rem 0;
+    }
+
+    /****************
+      7) MEDIA QUERIES (Mobile adjustments)
+    ****************/
+    @media (max-width: 600px) {
+      /* Hide desktop nav links; show hamburger */
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: block;
+      }
+
+      /* Mobile menu pinned to the viewport (fixed) */
+      .mobile-menu {
+        position: fixed;       /* changed from absolute to fixed */
+        top: 60px;             /* just below the fixed nav */
+        right: 1rem;
+        background: #fff;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        flex-direction: column;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        padding: 1rem;
+        z-index: 10000;
+      }
+      .mobile-menu.open {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .mobile-menu a {
+        display: block;
+        margin: 0.5rem 0;
+        color: #000;
+        text-decoration: none;
+        padding: 0.5rem 0.75rem;
+      }
+    }
+  </style>
+
+  <!-- Font Awesome (icons) -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+    integrity="sha512-SzlrxW/AGbEw5z3c5zAzYMYKM4HZf3cQ8VBo2Xxb7aC6cC1v2mN0/dQ/6l6/cp0E4nS7C4JwWAZ3OZ3OWtnTJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+</head>
+<body>
+
+  <!-- TOP NAV -->
+  <div class="top-nav">
+    <!-- Left: Logo -->
+    <div class="nav-left">
+      <a href="index.html">
+        <img src="next-gen-final.jpeg" alt="Logo" />
+      </a>
+    </div>
+
+    <!-- Desktop nav links -->
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="whychooseus.html">Why Choose Us</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+    <!-- Hamburger for mobile (on the right) -->
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+
+  <!-- MOBILE MENU (hidden by default, toggled open) -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="whychooseus.html">Why Choose Us</a>
+    <a href="services.html">Services</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- HERO SECTION -->
+  <div class="hero-container">
+    <!-- Background Image -->
+    <img 
+      src="hero.jpg" 
+      alt="Background" 
+      class="bg-image"
+    />
+    <!-- Color Overlay -->
+    <div class="color-overlay"></div>
+
+    <!-- Centered Heading -->
+    <div class="center-text">
+      <h1>Contact Us</h1>
+      <p>We’d Love to Hear From You. Let Us Help You With Your Next Project.</p>
+    </div>
+
+    <!-- CONTACT SECTION -->
+    <section class="contact-section">
+      <!-- LEFT BOX: Info -->
+      <div class="contact-box contact-info">
+        <h2>Get in Touch</h2>
+        <p>
+          Have questions or need more details about our global services?
+          Reach out today! Our team is ready to assist with your next project.
+        </p>
+        <ul>
+          <li><i class="fas fa-map-marker-alt"></i>4095 Southern BLVD Suite #207</li>
+          <li><i class="fas fa-map-marker-alt"></i>WEST PALM BEACH, FL 33406</li>
+          <li><i class="fas fa-phone"></i> 877-307-8131</li>
+          <li><i class="fas fa-envelope"></i> info@nextgenmepfp.com</li>
+        </ul>
+      </div>
+
+      <!-- RIGHT BOX: Form -->
+      <div class="contact-box">
+        <form class="contact-form">
+          <h2>Contact Form</h2>
+          <label for="name">Name <span>*</span></label>
+          <input type="text" id="name" required />
+
+          <label for="email">Email <span>*</span></label>
+          <input type="email" id="email" required />
+
+          <label for="subject">Subject <span>*</span></label>
+          <input type="text" id="subject" required />
+
+          <label for="message">How Can We Help?</label>
+          <textarea id="message" rows="5"></textarea>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
+  </div> <!-- END .hero-container -->
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <h3>NEXTGEN MEPfp DESIGN &amp; CONSULTANTS, LLC</h3>
+      <p>4095 Southern BLVD Suite #207, WEST PALM BEACH, FL 33406</p>
+      <p>Phone: 877-307-8131 &nbsp;|&nbsp; Email: info@nextgenmepfp.com</p>
+      <p>&copy; 2025 NEXTGEN MEPfp. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Dialogflow Chatbot -->
+  <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+  <df-messenger
+    location="us-central1"
+    project-id="nextgen-454401"
+    agent-id="09844661-f51b-4342-8ee3-0edb56e00c91"
+    language-code="en"
+    max-query-length="-1">
+    <df-messenger-chat-bubble
+      chat-title="NextGen Chatbot">
+    </df-messenger-chat-bubble>
+  </df-messenger>
+  <style>
+    df-messenger {
+      z-index: 9999;
+      position: fixed;
+      --df-messenger-font-color: #000;
+      --df-messenger-font-family: Google Sans;
+      --df-messenger-chat-background: #f3f6fc;
+      --df-messenger-message-user-background: #d3e3fd;
+      --df-messenger-message-bot-background: #fff;
+      bottom: 16px;
+      right: 16px;
+    }
+  </style>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>

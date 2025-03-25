@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>OUR SERVICES – NEXTGEN MEPfp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <!-- (Optional) Font Awesome for icons if you need them -->
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"
+    integrity="sha512-SzlrxW/AGbEw5z3c5zAzYMYKM4HZf3cQ8VBo2Xxb7aC6cC1v2mN0/dQ/6l6/cp0E4nS7C4JwWAZ3OZ3OWtnTJQ=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  ></script>
+
+  <style>
+    /**********************************************
+      1) RESET & GLOBAL STYLES
+    **********************************************/
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      min-height: 100%;
+      overflow-x: hidden; /* no horizontal scroll */
+      overflow-y: auto;   /* vertical scroll if content is tall */
+      font-family: Arial, sans-serif;
+      background: #DA3A2C; /* fallback if images fail */
+      color: #fff;
+    }
+
+    /**********************************************
+      2) TOP NAV (single, fixed)
+    **********************************************/
+    .top-nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: #fff; /* White nav background */
+      color: #000;
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; /* logo left, nav/hamburger right */
+      z-index: 9999;
+      white-space: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    .nav-left {
+      margin-right: 1rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .top-nav a {
+      color: black;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      font-weight: 600;
+    }
+    .top-nav a:hover,
+    .top-nav a.active {
+      opacity: 0.8;
+    }
+    /* Hamburger hidden on desktop, shown on mobile */
+    .hamburger {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /**********************************************
+      3) HERO CONTAINER (background + overlay)
+    **********************************************/
+    .hero-container {
+      position: relative;
+      width: 100%;
+      min-height: 100vh; /* fill screen if content is short */
+      overflow: hidden;
+      padding-top: 80px; /* offset so content isn't behind nav */
+    }
+    .bg-image {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.4;
+      z-index: 1;
+    }
+    .color-overlay {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #DA3A2C;
+      opacity: 0.8;
+      mix-blend-mode: multiply;
+      z-index: 2;
+    }
+
+    /**********************************************
+      4) SERVICES SECTION (scrollable cards)
+    **********************************************/
+    .services-section {
+      position: relative;
+      z-index: 3; /* above overlay */
+      padding: 5rem 2rem 4rem;
+      text-align: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .services-section h1 {
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 1rem;
+    }
+    .services-section p {
+      font-size: 1.3rem;
+      margin-bottom: 3rem;
+      max-width: 700px;
+      line-height: 1.5;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 columns per row */
+      gap: 2rem;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .services-grid .service-card:nth-child(4) {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+    .service-card {
+      background: rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 3rem 2rem;
+      position: relative;
+      transition: transform 0.4s, box-shadow 0.4s;
+      clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+    .service-card:hover {
+      transform: translateY(-12px) rotateX(6deg);
+      box-shadow: 0 16px 30px rgba(0,0,0,0.3);
+    }
+    .service-card h3 {
+      font-size: 1.6rem;
+      text-transform: uppercase;
+      margin: 1rem 0;
+    }
+    .service-card p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #eee;
+      margin-bottom: 1.5rem;
+    }
+    .btn-more {
+      text-decoration: none;
+      display: inline-block;
+      background: #fff;
+      color: #DA3A2C;
+      padding: 0.8rem 1.2rem;
+      border-radius: 4px;
+      font-weight: 600;
+      transition: background 0.3s, color 0.3s;
+      font-size: 1rem;
+    }
+    .btn-more:hover {
+      background: #f4f4f4;
+      color: #DA3A2C;
+    }
+
+    /**********************************************
+      5) FOOTER
+    **********************************************/
+    .main-footer {
+      width: 100%;
+      background: #000;
+      color: #fff;
+      text-align: left;
+      height: auto;
+      box-sizing: border-box;
+      padding: 2rem 1rem;
+    }
+    .footer-content {
+      padding-left: 20px;
+    }
+    .footer-content h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      padding-left: 5px;
+    }
+    .footer-content p {
+      margin-left: 0;
+      padding-left: 5px;
+    }
+
+    /**********************************************
+      6) MEDIA QUERY (max-width: 600px)
+    **********************************************/
+    @media (max-width: 600px) {
+      .top-nav {
+        justify-content: space-between; /* logo left, hamburger right */
+        padding: 0.5rem 1rem;
+        overflow-x: visible;
+        white-space: normal;
+        height: auto;
+      }
+      .hamburger {
+        display: block; /* show hamburger on mobile */
+      }
+      /* Hide desktop nav links by default on mobile */
+      .nav-links {
+        display: none;
+      }
+
+      /* Mobile dropdown menu pinned to viewport (fixed) */
+      #mobileMenu {
+        position: fixed;         /* changed from absolute to fixed */
+        top: 60px;               /* just below the fixed top-nav */
+        right: 1rem;
+        background: #fff;
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        flex-direction: column;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+        padding: 1rem;
+        z-index: 10000; /* ensure it stays on top */
+      }
+      #mobileMenu.open {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      #mobileMenu a {
+        display: block;
+        margin: 0.5rem 0;
+        color: #000;  /* black text on white background */
+        text-decoration: none;
+        padding: 0.5rem 0.75rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+      /* Force the 4th card to use normal flow */
+      .services-grid .service-card:nth-child(4) {
+        grid-column: auto !important;
+        grid-row: auto !important;
+      }
+    }
+  </style>
+
+  <script>
+    // Toggle function for mobile menu
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+  </script>
+</head>
+<body>
+
+  <!-- SINGLE TOP NAV -->
+  <div class="top-nav">
+    <div class="nav-left">
+      <a href="index.html">
+        <img src="next-gen-final.jpeg" alt="Logo" style="height:40px;" />
+      </a>
+    </div>
+    <!-- Desktop nav links -->
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="whychooseus.html">Why Choose Us</a>
+      <a href="services.html">Services</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html">Contact</a>
+    </div>
+    <!-- Hamburger for mobile -->
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+  </div>
+
+  <!-- MOBILE MENU (hidden by default, toggled open) -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="index.html">Home</a>
+    <a href="whychooseus.html">Why Choose Us</a>
+    <a href="services.html">Services</a>
+    <a href="projects.html">Projects</a>
+    <a href="contact.html">Contact</a>
+  </div>
+
+  <!-- HERO + SERVICES -->
+  <div class="hero-container">
+    <img
+      src="Download premium psd _ image of 5g network technology psd smart city background by Chanikarn Thongsupa about background, blue background, sky, design, and technology 2798874.jpg"
+      alt="Background"
+      class="bg-image"
+    />
+    <div class="color-overlay"></div>
+
+    <!-- SERVICES SECTION -->
+    <section class="services-section">
+      <h1>OUR SERVICES</h1>
+      <p>From Low Voltage MEPfp Design to Advanced Technology Consulting</p>
+      
+      <div class="services-grid">
+        <!-- Card #1 -->
+        <div class="service-card">
+          <h3>Low Voltage MEPfp Design</h3>
+          <p>
+            Comprehensive Mechanical, Electrical, Plumbing, and Fire Protection solutions
+            for modern buildings worldwide.
+          </p>
+          <a href="#" class="btn-more">Learn More</a>
+        </div>
+        <!-- Card #2 -->
+        <div class="service-card">
+          <h3>Hospitality &amp; Resorts</h3>
+          <p>
+            Specialized in luxury hotels, resorts, and leisure facilities—ensuring
+            comfort and efficiency for guests worldwide.
+          </p>
+          <a href="#" class="btn-more">Learn More</a>
+        </div>
+        <!-- Card #3 -->
+        <div class="service-card">
+          <h3>Technology Consulting</h3>
+          <p>
+            Advanced A/V, security, and IT infrastructure designs for seamless global operations.
+          </p>
+          <a href="#" class="btn-more">Learn More</a>
+        </div>
+        <!-- Card #4 -->
+        <div class="service-card">
+          <h3>Global Reach</h3>
+          <p>
+            Delivering projects in North America, Europe, and beyond—bridging
+            innovation across continents.
+          </p>
+          <a href="#" class="btn-more">Learn More</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <h3>NEXTGEN MEPfp DESIGN &amp; CONSULTANTS, LLC</h3>
+    <p>4095 Southern BLVD Suite #207, WEST PALM BEACH, FL 33406</p>
+    <p>Phone: 877-307-8131 | Email: info@nextgenmepfp.com</p>
+    <p>&copy; 2025 NEXTGEN MEPfp. All Rights Reserved.</p>
+  </footer>
+
+  <!-- Dialogflow Chatbot -->
+  <link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+  <script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+  <df-messenger
+    location="us-central1"
+    project-id="nextgen-454401"
+    agent-id="09844661-f51b-4342-8ee3-0edb56e00c91"
+    language-code="en"
+    max-query-length="-1">
+    <df-messenger-chat-bubble chat-title="NextGen Chatbot">
+    </df-messenger-chat-bubble>
+  </df-messenger>
+  <style>
+    df-messenger {
+      z-index: 999;
+      position: fixed;
+      --df-messenger-font-color: #000;
+      --df-messenger-font-family: Google Sans;
+      --df-messenger-chat-background: #f3f6fc;
+      --df-messenger-message-user-background: #d3e3fd;
+      --df-messenger-message-bot-background: #fff;
+      bottom: 16px;
+      right: 16px;
+    }
+  </style>
+</body>
+</html>

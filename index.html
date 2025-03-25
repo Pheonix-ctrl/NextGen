@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Why Choose Us – Exact Replica</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Container for everything -->
+  <div class="container">
+    <!-- Top nav -->
+    <div class="top-nav">
+      <!-- Left side (logo) -->
+      <div class="nav-left">
+        <a href="index.html">
+          <img src="next-gen-final.jpeg" alt="Logo" style="height:40px;" />
+        </a>
+      </div>
+      <!-- Nav links (wrapped in a container with an ID) -->
+      <div class="nav-links" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="whychooseus.html">Why Choose Us</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <!-- HAMBURGER BUTTON -->
+      <!-- Visible on mobile, toggles the menu open/closed -->
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+
+
+    </div>
+    
+    <!-- The hero container with background image + color overlay -->
+    <div class="hero-container">
+      <!-- Background Image -->
+      <img 
+        src="Download premium psd _ image of 5g network technology psd smart city background by Chanikarn Thongsupa about background, blue background, sky, design, and technology 2798874.jpg" 
+        alt="Background" 
+        class="bg-image" 
+      />
+      <!-- Red Overlay -->
+      <div class="color-overlay"></div>
+    
+      <!-- Hero Section -->
+      <header class="hero" id="home">
+        <div class="hero-content">
+          <!-- TEXT BLOCK (LEFT) -->
+          <div class="hero-text">
+            <h3>Low Voltage Experts</h3>
+            <h1 class="hero-title">
+              NEXTGEN MEP<span class="small-fp">fp</span>
+            </h1>
+            <h2 class="hero-subline">
+              INNOVATIVE MEP & TECHNOLOGY SOLUTIONS
+            </h2>
+          </div>
+
+          <!-- GIRL IMAGE (RIGHT) -->
+          <img src="choose.png" alt="Girl" class="hero-girl" />
+        </div>
+      </header>
+    </div>
+  
+  </div> <!-- close your main container -->
+
+  <!-- Footer (now in normal flow, not pinned) -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <h3>NEXTGEN MEPfp DESIGN & CONSULTANTS, LLC</h3>
+      <p>4095 Southern BLVD Suite #207, WEST PALM BEACH, FL 33406</p>
+      <p>Phone: 877-307-8131 &nbsp;|&nbsp; Email: info@nextgenmepfp.com</p>
+      <p>&copy; 2025 NEXTGEN MEPfp. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for toggling the menu -->
+<!-- JavaScript for toggling the menu -->
+<script>
+  function toggleMenu() {
+    const menu = document.getElementById('mobileMenu');
+    console.log("Before toggle, class:", menu.className);
+    menu.classList.toggle('open');
+    console.log("After toggle, class:", menu.className);
+  }
+</script>
+
+<link rel="stylesheet" href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css">
+<script src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"></script>
+<df-messenger
+  location="us-central1"
+  project-id="nextgen-454401"
+  agent-id="09844661-f51b-4342-8ee3-0edb56e00c91"
+  language-code="en"
+  max-query-length="-1">
+  <df-messenger-chat-bubble
+    chat-title="NextGen Chatbot">
+  </df-messenger-chat-bubble>
+</df-messenger>
+<style>
+  df-messenger {
+    z-index: 999;
+    position: fixed;
+    --df-messenger-font-color: #000;
+    --df-messenger-font-family: Google Sans;
+    --df-messenger-chat-background: #f3f6fc;
+    --df-messenger-message-user-background: #d3e3fd;
+    --df-messenger-message-bot-background: #fff;
+    bottom: 16px;
+    right: 16px;
+  }
+</style>
+
+</body>
+</html>

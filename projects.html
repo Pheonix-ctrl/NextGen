@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Projects – NextGen MEPfp</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <!-- Top Navigation -->
+    <div class="top-nav">
+      <!-- Left: Logo -->
+      <div class="nav-left">
+        <a href="index.html">
+          <img src="next-gen-final.jpeg" alt="Logo" style="height:40px;" />
+        </a>
+      </div>
+
+      <!-- Nav links (use id="mobileMenu" so our mobile script can target it) -->
+      <div class="nav-links" id="mobileMenu">
+        <a href="index.html">Home</a>
+        <a href="whychooseus.html">Why Choose Us</a>
+        <a href="services.html">Services</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+      </div>
+
+      <!-- Hamburger button (hidden on desktop, shown on mobile) -->
+      <button class="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+    <!-- END .top-nav -->
+
+    <!-- HERO SECTION -->
+    <div class="hero-container">
+      <img 
+        src="Download premium psd _ image of 5g network technology psd smart city background by Chanikarn Thongsupa about background, blue background, sky, design, and technology 2798874.jpg" 
+        alt="Background" 
+        class="bg-image" 
+      />
+      <div class="color-overlay"></div>
+
+      <!-- Hero heading for Projects -->
+      <div class="projects-header">
+        <h2>Major Projects</h2>
+        <p>Shaping Hospitality &amp; Commercial Spaces Worldwide</p>
+      </div>
+    </div>
+    <!-- END HERO SECTION -->
+
+    <!-- PROJECTS SECTION -->
+    <section class="projects-section">
+      <div class="projects-grid">
+        <div class="project-item p1">
+          <img src="100 Las olasjpg.jpg" alt="100 Las Olas in FLL" />
+          <div class="project-content">
+            <h4>100 Las Olas in Fort Lauderdale, Florida</h4>
+            <p>
+              100 Las Olas stands as a premier mixed-use development in downtown Fort Lauderdale, uniting luxury hospitality and residential living.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-item p2">
+          <img src="trump int.gif.jpeg" alt="Trump International" />
+          <div class="project-content">
+            <h4>Trump International in Miami</h4>
+            <p>
+              Trump International exemplifies luxury hospitality with an emphasis on energy efficiency and cutting-edge building systems. Our MEPfp design integrated advanced HVAC solutions to maintain comfortable environments while reducing costs. State-of-the-art electrical and security infrastructures further enhance the property’s reputation for world-class service. State-of-the-art security systems, from keyless room entry to 24/7 CCTV monitoring, paired with automated building controls for efficient facility management.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-item p3">
+          <img src="hyatt palace boca.jpg" alt="Hyatt Place" />
+          <div class="project-content">
+            <h4>Hyatt Place in Boca Raton, Florida</h4>
+            <p>
+              Hyatt Place Boca Raton combines a modern boutique-hotel feel with highly efficient MEPfp systems. Our design optimized plumbing layouts to reduce water usage, while the electrical infrastructure accommodates advanced technology and future expansions. The result is a stylish, comfortable space for both leisure and business travelers in the vibrant heart of Boca Raton. Zoned heating and cooling systems for personalized comfort, plus centralized controls for energy savings during low-occupancy periods.
+            </p>
+          </div>
+        </div>
+
+        <div class="project-item p4">
+          <img src="westin at cocoa 2.jpg" alt="Westin at Cocoa Beach" />
+          <div class="project-content">
+            <h4>Westin at Cocoa Beach</h4>
+            <p>
+              Spanning 16 acres with over 500 guest rooms, multiple restaurants, and extensive leisure amenities.
+            </p>
+          </div>
+        </div>
+      </div> <!-- end .projects-grid -->
+    </section>
+    <!-- END PROJECTS SECTION -->
+
+    <!-- COMPANIES LOGO SECTION -->
+   
+    <!-- END COMPANIES LOGO SECTION -->
+  </div> <!-- end .container -->
+
+  <!-- FOOTER -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <h3>NEXTGEN MEPfp DESIGN &amp; CONSULTANTS, LLC</h3>
+      <p>4095 Southern BLVD Suite #207, WEST PALM BEACH, FL 33406</p>
+      <p>Phone: 877-307-8131 &nbsp;|&nbsp; Email: info@nextgenmepfp.com</p>
+      <p>&copy; 2025 NEXTGEN MEPfp. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Dialogflow Messenger -->
+  <link 
+    rel="stylesheet" 
+    href="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/themes/df-messenger-default.css"
+  >
+  <script 
+    src="https://www.gstatic.com/dialogflow-console/fast/df-messenger/prod/v1/df-messenger.js"
+  ></script>
+  <df-messenger
+    location="us-central1"
+    project-id="nextgen-454401"
+    agent-id="09844661-f51b-4342-8ee3-0edb56e00c91"
+    language-code="en"
+    max-query-length="-1"
+  >
+    <df-messenger-chat-bubble chat-title="NextGen Chatbot">
+    </df-messenger-chat-bubble>
+  </df-messenger>
+
+  <!-- Inline style for chatbot -->
+  <style>
+    df-messenger {
+      z-index: 999;
+      position: fixed;
+      --df-messenger-font-color: #000;
+      --df-messenger-font-family: Google Sans;
+      --df-messenger-chat-background: #f3f6fc;
+      --df-messenger-message-user-background: #d3e3fd;
+      --df-messenger-message-bot-background: #fff;
+      bottom: 16px;
+      right: 16px;
+    }
+  </style>
+
+  <!-- Mobile Menu Toggle Script -->
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('mobileMenu');
+      menu.classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
