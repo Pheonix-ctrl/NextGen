@@ -249,7 +249,7 @@ html, body {
 }
 .project-item img {
   width: 100%;
-  height: auto;
+  height: 450px;
   display: block;
 }
 .projects-header {
